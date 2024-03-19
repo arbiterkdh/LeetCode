@@ -1,13 +1,16 @@
 class Solution {
     public int countConsistentStrings(String allowed, String[] words) {
-        int result = 0;
-        allowed = "["+allowed+"]";
-
-        for(int i =0; i<words.length; i++){
-            words[i] = words[i].replaceAll(allowed,"");
-            if(words[i].isEmpty()) result++;
+        int[] freq = new int[26];
+        int answer = words.length;
+        for(char ch : allowed.toCharArray()) freq[ch - 'a']++;
+        for(String word : words){
+            for(char ch : word.toCharArray()){
+                if(freq[ch - 'a']==0){
+                    answer--;
+                    break;
+                }
+            }
         }
-
-        return result;
+        return answer;
     }
 }
