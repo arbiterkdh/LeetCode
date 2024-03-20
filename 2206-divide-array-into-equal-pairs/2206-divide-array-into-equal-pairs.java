@@ -5,7 +5,7 @@ class Solution {
             pair[n]++;
         }
         for(int i=1; i<=500; i++){
-            if(list[i] %2 != 0){
+            if(pair[i] %2 != 0){
                 return false;
             }
         }
