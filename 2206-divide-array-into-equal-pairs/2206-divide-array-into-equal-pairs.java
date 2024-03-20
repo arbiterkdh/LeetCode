@@ -1,15 +1,14 @@
 class Solution {
     public boolean divideArray(int[] nums) {
-        int[] list = new int[501];
-        int pair = 0;
+        int[] pair = new int[501];
         for(int n : nums){
-            list[n]++;
+            pair[n]++;
         }
-        for(int i=0; i<=500; i++){
-            if(list[i]>=2){
-                pair += list[i]/2;
+        for(int i=1; i<=500; i++){
+            if(list[i] %2 != 0){
+                return false;
             }
         }
-        return nums.length == pair*2;
+        return true;
     }
 }
