@@ -1,12 +1,19 @@
 class Solution {
     public int numIdenticalPairs(int[] nums) {
-        int len = nums.length;
-        int cnt = 0;
-        for(int i = 0; i<len-1; i++){
-            for(int j = i+1; j<len; j++){
-                if(nums[i]==nums[j]) cnt++;
+        int[] list = new int[101];
+        int result = 0;
+        
+        for(int n : nums){
+            list[n]++;
+        }
+
+        for(int i =1; i<=100; i++){
+            if(list[i]>=2){
+                int x = list[i];
+                result+= x*(x-1)/2;
             }
         }
-        return cnt;
+
+        return result;
     }
 }
